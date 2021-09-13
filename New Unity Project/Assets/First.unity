@@ -256,6 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1692950749}
   - component: {fileID: 1692950748}
+  - component: {fileID: 1692950750}
   m_Layer: 0
   m_Name: coroutine
   m_TagString: Untagged
@@ -277,7 +278,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1692950750}
+        m_TargetAssemblyTypeName: InstanceBehaviour, Assembly-CSharp
+        m_MethodName: OnInstance
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 8679487113601084791, guid: 694b7df078ae0b04b8065e93d7e45811, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   canRun: 1
   holdTime: 2
 --- !u!4 &1692950749
@@ -294,6 +307,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1692950750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692950747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a627d53e51cb4dd42ba0bb92b20d4434, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1817429994
 GameObject:
   m_ObjectHideFlags: 0
