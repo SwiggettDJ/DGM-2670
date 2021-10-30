@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CollectionBehaviour : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class CollectionBehaviour : MonoBehaviour
     public HandSO hand;
     private SpriteRenderer artSpriteRenderer;
     private GameObject art;
+    public UnityEvent pickUpEvent;
     void Awake()
     {
         art = GetComponentInChildren<Transform>().gameObject;
@@ -16,13 +18,16 @@ public class CollectionBehaviour : MonoBehaviour
         artSpriteRenderer.sprite = card.art;
         artSpriteRenderer.color = card.cardColor;
         
-        EnableDisableCollectable(!card.inHand);
     }
 
-    private void OnMouseDown()
+    private void OnTriggerEnter(Collider other)
     {
-        hand.AddToHand(card);
-        EnableDisableCollectable(false);
+        if (other.CompareTag("Player"))
+        {
+            hand.AddToHand(card); 
+            EnableDisableCollectable(false);
+            pickUpEvent.Invoke();
+        }
     }
 
 
@@ -31,4 +36,6 @@ public class CollectionBehaviour : MonoBehaviour
         art.SetActive(value);
         GetComponent<Collider>().enabled = value;
     }
+    
+    
 }
